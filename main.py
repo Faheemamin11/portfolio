@@ -66,7 +66,7 @@ def sidebar():
     with st.sidebar:
         st.title("Navigation")
         page = st.radio("Go to", 
-                       ("Resume", "Projects 1", "Projects 2"),
+                       ("Resume", "Project 1", "Project 2"),
                        label_visibility="collapsed")
         
         st.markdown("---")
@@ -83,61 +83,145 @@ def sidebar():
 
 # Resume page
 def resume_page():
-    st.title("My Professional Resume")
+    st.title("Hafiz Muhammad Faheem Amin")
+    st.subheader("Data Analyst | Administrative Officer")
+    st.markdown("📧 Fahimamin017@gmail.com | 📱 +92 323 8608816")
+    st.markdown("[LinkedIn](https://www.linkedin.com/in/faheem-amin-44988a1a7/) | [GitHub](https://github.com/Faheemamin11)")
+    
+    
+    
     st.markdown("---")
     
-    # Header with basic info
-    col1, col2 = st.columns([3, 1])
+    # Professional Summary
+    st.header("PROFESSIONAL SUMMARY")
+    st.markdown("""
+    Driven and accomplished professional with over three years of expertise in administration, IT management, and operations. 
+    Skilled in streamlining workflows, maintaining accurate records, and leveraging technology to optimize performance. 
+    Adept at handling diverse administrative functions, ensuring regulatory compliance, and managing teams to achieve objectives.
+    
+    Additionally, an aspiring Data Analyst with proficiency in Python, pandas, Matplotlib, Seaborn, and Streamlit. 
+    Experienced in data wrangling, feature engineering, and dashboard creation to extract insights from complex datasets. 
+    Strong analytical and problem-solving skills with hands-on experience in data visualization, EDA, and KPI analysis.
+    """)
+    
+    st.markdown("---")
+    
+    # Professional Experience
+    st.header("PROFESSIONAL EXPERIENCE")
+    
+    with st.expander("**ADMIN OFFICER** - Riphah International College, Lodhran Campus (August 2022 – Present)", expanded=True):
+        st.markdown("""
+        **Key Accountabilities & Responsibilities:**
+        - Managed campus operations, ensuring compliance with administrative policies and procedures
+        - Organized events and activities, promoting student engagement and institutional objectives
+        - Analyzed KPIs to improve efficiency and address operational challenges effectively
+        - Oversaw maintenance and security to ensure a safe working environment
+        - Prepared reports using Microsoft tools to enhance communication and decision-making
+        """)
+    
+    with st.expander("**ASSISTANT EXAMINER (PART-TIME)** - The Islamia University of Bahawalpur (July 2021 – August 2022)", expanded=False):
+        st.markdown("""
+        **Key Accountabilities & Responsibilities:**
+        - Prepared examination materials, ensuring accuracy and adherence to established procedures
+        - Maintained secure handling of scripts and award lists for processing
+        - Conducted data entry, feeding marks into systems for final results
+        - Organized results and managed records to ensure seamless examination workflows
+        - Supported administrative tasks, balancing multiple responsibilities under strict deadlines
+        """)
+    
+    st.markdown("---")
+    
+    # Projects
+    st.header("PROJECTS")
+    
+    col1, col2 = st.columns(2)
+    
     with col1:
-        st.header("Hafiz Muhammad Faheem Amin")
-        st.subheader("Data Analyst | Administrative")
-        st.write("""
-        Results-driven professional with 3+ years in Administration, IT management, and operations, now transitioning into data analytics with expertise in Python, pandas, visualization, and dashboard creation..
+        with st.expander("**Superstore Sales Dashboard (Streamlit)**", expanded=True):
+            st.markdown("""
+            - Developed an interactive dashboard using Streamlit to visualize sales trends
+            - Processed and cleaned the Superstore dataset using pandas for data manipulation
+            - Created visualizations with Matplotlib & Seaborn to analyze revenue, profit, and regional sales distribution
+            - Enhanced decision-making by integrating filters and dynamic charts for real-time insights
+            """)
+    
+    with col2:
+        with st.expander("**Pharma Sales Dashboard (Streamlit)**", expanded=True):
+            st.markdown("""
+            - Built a dynamic dashboard using Streamlit to analyze pharma sales data
+            - Cleaned and preprocessed the dataset, created new columns, renamed features, and handled missing values
+            - Implemented interactive visualizations (line charts, bar plots) to track medicine sales trends over time
+            - Provided insights into top-selling medicines, seasonal demand patterns, and revenue distribution
+            """)
+    
+    st.markdown("---")
+    
+    # Education
+    st.header("EDUCATION")
+    st.markdown("- **MASTER OF SCIENCE (MS) – INFORMATION TECHNOLOGY** (Ongoing) - The Islamia University of Bahawalpur")
+    st.markdown("- **BACHELOR OF SCIENCE (BSC) – INFORMATION TECHNOLOGY** - NCBA&E, Bahawalpur")
+    st.markdown("- **DIPLOMA OF ASSOCIATE ENGINEERING (DAE) – ELECTRICAL ENGINEERING** - Aljadoon College, Karachi")
+    st.markdown("- **MATRICULATION – SCIENCE** - High School, Allahabad (BISE-Bahawalpur)")
+    
+    st.markdown("---")
+    
+    # Areas of Expertise
+    st.header("AREAS OF EXPERTISE")
+    
+    col1, col2 = st.columns(2)
+    
+    with col1:
+        st.subheader("Administration & IT")
+        st.markdown("""
+        - Office & Campus Operations Management
+        - KPI Analysis & Performance Optimization
+        - Team Collaboration & Leadership
+        - Report Writing & Data-Driven Decision Making
+        - Microsoft Office Suite (Excel, Word, PowerPoint)
         """)
     
     with col2:
-        # Add your photo if you want (uncomment and add image to assets folder)
-        # st.image("assets/profile.jpg", width=150)
-        pass
+        st.subheader("Data Analysis & Visualization")
+        st.markdown("""
+        - Programming & Data Handling: Python, pandas, NumPy
+        - Data Visualization: Matplotlib, Seaborn, Streamlit
+        - Data Wrangling & Cleaning
+        - Feature Engineering
+        - Dashboard Development
+        - Database Management: SQL (Basic knowledge)
+        """)
     
     st.markdown("---")
     
-    # PDF Viewer Function
-    def show_pdf(file_path):
-        try:
-            with open(file_path, "rb") as f:
-                base64_pdf = base64.b64encode(f.read()).decode('utf-8')
-            pdf_display = f"""
-            <div class="pdf-container">
-                <iframe src="data:application/pdf;base64,{base64_pdf}" 
-                        width="1200" 
-                        height="1000" 
-                        style="border: none;">
-                </iframe>
-            </div>
-            """
-            st.markdown(pdf_display, unsafe_allow_html=True)
-        except FileNotFoundError:
-            st.error("Resume PDF not found. Please ensure 'resume.pdf' is in the folder.")
+    # Additional Information
+    st.header("ADDITIONAL INFORMATION")
+    st.markdown("- **Driving License:** Valid Pakistan Driving License for light vehicles")
+    st.markdown("- **Languages:** English (Intermediate), Urdu (Fluent), Arabic (Intermediate)")
     
-    # Display PDF
-    show_pdf("Faheem Amin CV.pdf")
+    st.markdown("---")
     
-    # Download button
+    # References
+    st.header("REFERENCES")
+    st.markdown("Available upon request")
+    
+    st.markdown("---")
+    
+    # PDF Viewer and Download
+    st.header("DOWNLOAD RESUME")
+       # Download button
     try:
         with open("Faheem Amin CV.pdf", "rb") as pdf_file:
             PDFbyte = pdf_file.read()
         
         st.download_button(
-            label="📄 Download Resume",
+            label="📄 Download Full Resume",
             data=PDFbyte,
-            file_name="YourName_Resume.pdf",
+            file_name="Faheem_Amin_Resume.pdf",
             mime="application/octet-stream",
             use_container_width=True
         )
     except:
         st.warning("Could not load download button. PDF file missing.")
-
 # Projects Page 1
 def projects_page_2():
     st.title("Pharmaceutical Usage Dashboard")
@@ -277,9 +361,9 @@ def main():
     
     if page == "Resume":
         resume_page()
-    elif page == "Projects 1":
+    elif page == "Project 1":
         projects_page_1()
-    elif page == "Projects 2":
+    elif page == "Project 2":
         projects_page_2()
 
 if __name__ == "__main__":
